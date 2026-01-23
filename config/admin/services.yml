@@ -73,7 +73,7 @@ services:
 
   oksydan.is_imageslider.form.identifiable_object.builder.image_slider_form_builder:
     class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\FormBuilder'
-    factory: 'prestashop.core.form.builder.form_builder_factory:create'
+    factory: ['@prestashop.core.form.builder.form_builder_factory', 'create']
     arguments:
       - 'Oksydan\IsImageslider\Form\ImageSliderType'
       - '@oksydan.is_imageslider.form.identifiable_object.data_provider.image_slider_form_data_provider'
@@ -90,7 +90,7 @@ services:
 
   oksydan.is_imageslider.form.identifiable_object.handler.image_slider_form_handler:
     class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Handler\FormHandler'
-    factory: 'prestashop.core.form.identifiable_object.handler.form_handler_factory:create'
+    factory: ['@prestashop.core.form.identifiable_object.handler.form_handler_factory', 'create']
     arguments:
       - '@oksydan.is_imageslider.form.identifiable_object.data_handler.image_slider_form_data_handler'
 
@@ -172,7 +172,7 @@ services:
 
   Oksydan\IsImageslider\Type\TranslatableFile:
     class: 'Oksydan\IsImageslider\Type\TranslatableFile'
-    parent: 'form.type.common.translatable'
+    parent: 'PrestaShopBundle\Form\Admin\Type\TranslatableType'
     public: true
     tags:
       - { name: form.type }

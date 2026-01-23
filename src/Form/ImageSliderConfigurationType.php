@@ -42,9 +42,7 @@ class ImageSliderConfigurationType extends TranslatorAwareType
                     new Range([
                         'min' => $minTime,
                         'max' => $maxTime,
-                        'invalidMessage' => $rangeInvalidMessage,
-                        'maxMessage' => $rangeInvalidMessage,
-                        'minMessage' => $rangeInvalidMessage,
+                        'notInRangeMessage' => $rangeInvalidMessage,
                     ]),
                 ],
             ])
