@@ -62,8 +62,8 @@ final class ImageSliderQueryBuilder extends AbstractDoctrineQueryBuilder
             $searchCriteria->getOrderBy(),
             $searchCriteria->getOrderWay()
         )
-            ->setFirstResult($searchCriteria->getOffset())
-            ->setMaxResults($searchCriteria->getLimit());
+            ->setFirstResult($searchCriteria->getOffset() ?? 0)
+            ->setMaxResults($searchCriteria->getLimit() ?? 10);
 
         $qb->orderBy('position');
 

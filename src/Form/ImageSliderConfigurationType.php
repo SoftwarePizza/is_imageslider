@@ -1,9 +1,6 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Oksydan\IsImageslider\Form;
-
 use Oksydan\IsImageslider\Configuration\SliderConfiguration;
 use Oksydan\IsImageslider\Translations\TranslationDomains;
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
@@ -12,7 +9,6 @@ use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Range;
-
 class ImageSliderConfigurationType extends TranslatorAwareType
 {
     /**
@@ -30,7 +26,6 @@ class ImageSliderConfigurationType extends TranslatorAwareType
                 '%max%' => $maxTime,
             ]
         );
-
         $builder
             ->add('speed', TextType::class, [
                 'attr' => ['class' => 'col-md-4 col-lg-2'],
@@ -42,9 +37,7 @@ class ImageSliderConfigurationType extends TranslatorAwareType
                     new Range([
                         'min' => $minTime,
                         'max' => $maxTime,
-                        'invalidMessage' => $rangeInvalidMessage,
-                        'maxMessage' => $rangeInvalidMessage,
-                        'minMessage' => $rangeInvalidMessage,
+                        'notInRangeMessage' => $rangeInvalidMessage,
                     ]),
                 ],
             ])
@@ -59,7 +52,6 @@ class ImageSliderConfigurationType extends TranslatorAwareType
                 'multistore_configuration_key' => SliderConfiguration::HOMESLIDER_WRAP,
             ]);
     }
-
     /**
      * {@inheritdoc}
      *
